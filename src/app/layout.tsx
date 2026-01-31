@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   keywords: ["Jay Pandya", "Full-Stack Developer", "AI", "Temple University", "React", "TypeScript", "Java", "Spring Boot", "Portfolio"],
   authors: [{ name: "Jay Pandya" }],
   creator: "Jay Pandya",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.svg",
+  },
   openGraph: {
     title: "Jay Pandya | Full-Stack Developer & AI Enthusiast",
     description: "Temple University CS student building full-stack apps with React, TypeScript, Java & Spring Boot.",
