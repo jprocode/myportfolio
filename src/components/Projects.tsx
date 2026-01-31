@@ -36,7 +36,7 @@ const projects: Project[] = [
         size: 'large',
     },
     {
-        title: 'OwlHacks Mental Health Navigator',
+        title: 'OwlHacks MindScape Compass',
         description: 'Hackathon project: Mental health resource navigator. Led 4-person team to 2nd place.',
         tech: ['Team Project'],
         status: 'complete',

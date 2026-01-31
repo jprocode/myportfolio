@@ -1837,3 +1837,167 @@ body {
     transform: scale(0.6);
   }
 }
+
+/* ========================================
+   PHASE 4: ENHANCED FOOTER
+   ======================================== */
+
+.footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  color: var(--foreground-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent);
+}
+
+.footer-copyright {
+  font-size: 0.875rem;
+  color: var(--foreground-secondary);
+  margin: 0;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--card-background);
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.back-to-top:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-accent);
+}
+
+/* ========================================
+   PHASE 4: PROJECT CARD DARK MODE FIX
+   ======================================== */
+
+.project-card {
+  background: var(--card-background);
+  border: 1px solid var(--card-border);
+}
+
+[data-theme="dark"] .project-card {
+  background: var(--card-background);
+  border-color: var(--card-border);
+}
+
+/* Dark mode text contrast improvements */
+[data-theme="dark"] .project-description {
+  color: #b0b0b0;
+}
+
+[data-theme="dark"] .project-metrics li {
+  color: #b0b0b0;
+}
+
+[data-theme="dark"] .project-title {
+  color: #ffffff;
+}
+
+[data-theme="light"] .project-card,
+:root .project-card {
+  background: var(--card-background);
+}
+
+/* Animated gradient border on hover */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg,
+      transparent 0%,
+      transparent 40%,
+      var(--accent) 50%,
+      transparent 60%,
+      transparent 100%);
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 200%;
+  }
+
+  100% {
+    background-position: -200% -200%;
+  }
+}
+
+/* ========================================
+   PHASE 4: REDUCED MOTION SUPPORT
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .project-card::before {
+    animation: none;
+  }
+
+  .orbiting-skills-center-glow {
+    animation: none;
+  }
+}

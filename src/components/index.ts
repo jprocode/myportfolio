@@ -9,3 +9,6 @@ export { Experience } from './Experience';
 export { Contact } from './Contact';
 export { AIChat } from './AIChat';
 export { default as OrbitingSkills } from './ui/orbiting-skills';
+export { ScrollReveal } from './ScrollReveal';
+export { ParallaxSection } from './ParallaxSection';
+export { TiltCard } from './TiltCard';

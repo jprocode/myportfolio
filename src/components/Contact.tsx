@@ -130,7 +130,28 @@ export function Contact() {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: 0.5, duration: 0.5 }}
                 >
-                    <p>© 2026 Jay Pandya. Built with Next.js and TypeScript.</p>
+                    <div className="footer-content">
+                        <div className="footer-links">
+                            <a href="#home" className="footer-link">Home</a>
+                            <a href="#about" className="footer-link">About</a>
+                            <a href="#projects" className="footer-link">Projects</a>
+                            <a href="#experience" className="footer-link">Experience</a>
+                        </div>
+                        <p className="footer-copyright">© 2026 Jay Pandya. Built with Next.js and TypeScript.</p>
+                    </div>
+
+                    {/* Back to Top Button */}
+                    <motion.button
+                        className="back-to-top"
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        whileHover={{ y: -4, scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        aria-label="Back to top"
+                    >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 15l-6-6-6 6" />
+                        </svg>
+                    </motion.button>
                 </motion.footer>
             </div>
         </section>
