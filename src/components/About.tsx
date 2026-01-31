@@ -2,8 +2,7 @@
 
 import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
-import { GitHubActivity } from './GitHubActivity';
-import { TechConstellation } from './TechConstellation';
+import OrbitingSkills from './ui/orbiting-skills';
 
 const stats = [
     { value: '40%', label: 'Latency Reduction', description: 'Question delivery optimization' },
@@ -101,14 +100,9 @@ export function About() {
                         </div>
                     </motion.div>
 
-                    {/* GitHub Activity Feed */}
+                    {/* Orbiting Skills Visualization */}
                     <motion.div variants={itemVariants}>
-                        <GitHubActivity />
-                    </motion.div>
-
-                    {/* Tech Stack Visualization */}
-                    <motion.div variants={itemVariants}>
-                        <TechConstellation />
+                        <OrbitingSkills />
                     </motion.div>
                 </motion.div>
             </div>
