@@ -133,7 +133,7 @@ export function Experience() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     <motion.a
-                        href="/resume.pdf"
+                        href="/JayPandyaResume.pdf"
                         className="btn-primary magnetic-button"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
