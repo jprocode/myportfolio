@@ -12,3 +12,5 @@ export { default as OrbitingSkills } from './ui/orbiting-skills';
 export { ScrollReveal } from './ScrollReveal';
 export { ParallaxSection } from './ParallaxSection';
 export { TiltCard } from './TiltCard';
+export { KonamiCode } from './KonamiCode';
+export { ConsoleMessage } from './ConsoleMessage';

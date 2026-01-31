@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navigation } from "@/components/Navigation";
 import { CustomCursor } from "@/components/CustomCursor";
 import { AIChat } from "@/components/AIChat";
+import { KonamiCode } from "@/components/KonamiCode";
+import { ConsoleMessage } from "@/components/ConsoleMessage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,12 +21,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Jay Pandya | Full-Stack Developer & AI Enthusiast",
   description: "Portfolio of Jay Pandya - Temple University CS student specializing in full-stack development, AI, and building elegant solutions with modern technologies.",
-  keywords: ["Jay Pandya", "Full-Stack Developer", "AI", "Temple University", "React", "TypeScript", "Portfolio"],
+  keywords: ["Jay Pandya", "Full-Stack Developer", "AI", "Temple University", "React", "TypeScript", "Java", "Spring Boot", "Portfolio"],
   authors: [{ name: "Jay Pandya" }],
+  creator: "Jay Pandya",
   openGraph: {
     title: "Jay Pandya | Full-Stack Developer & AI Enthusiast",
-    description: "Portfolio of Jay Pandya - Temple University CS student specializing in full-stack development, AI, and building elegant solutions with modern technologies.",
+    description: "Temple University CS student building full-stack apps with React, TypeScript, Java & Spring Boot.",
     type: "website",
+    locale: "en_US",
+    siteName: "Jay Pandya Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jay Pandya | Full-Stack Developer",
+    description: "Temple University CS student building full-stack apps with React, TypeScript, Java & Spring Boot.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -43,8 +57,11 @@ export default function RootLayout({
           <Navigation />
           {children}
           <AIChat />
+          <KonamiCode />
+          <ConsoleMessage />
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
