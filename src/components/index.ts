@@ -7,3 +7,6 @@ export { About } from './About';
 export { Projects } from './Projects';
 export { Experience } from './Experience';
 export { Contact } from './Contact';
+export { GitHubActivity } from './GitHubActivity';
+export { AIChat } from './AIChat';
+export { TechConstellation } from './TechConstellation';

@@ -2,6 +2,8 @@
 
 import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
+import { GitHubActivity } from './GitHubActivity';
+import { TechConstellation } from './TechConstellation';
 
 const stats = [
     { value: '40%', label: 'Latency Reduction', description: 'Question delivery optimization' },
@@ -99,16 +101,14 @@ export function About() {
                         </div>
                     </motion.div>
 
-                    {/* Activity Feed Placeholder */}
-                    <motion.div className="activity-placeholder" variants={itemVariants}>
-                        <span className="placeholder-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M13 17l5-5-5-5" />
-                                <path d="M6 12h12" />
-                                <circle cx="12" cy="12" r="10" />
-                            </svg>
-                        </span>
-                        <span className="placeholder-text">Live Activity Feed (Coming in Phase 3)</span>
+                    {/* GitHub Activity Feed */}
+                    <motion.div variants={itemVariants}>
+                        <GitHubActivity />
+                    </motion.div>
+
+                    {/* Tech Stack Visualization */}
+                    <motion.div variants={itemVariants}>
+                        <TechConstellation />
                     </motion.div>
                 </motion.div>
             </div>
