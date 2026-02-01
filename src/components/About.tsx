@@ -3,12 +3,13 @@
 import { motion, useInView, Variants } from 'framer-motion';
 import { useRef } from 'react';
 import OrbitingSkills from './ui/orbiting-skills';
+import { AnimatedStat } from '@/components/ui/animated-stat';
 
 const stats = [
-    { value: '40%', label: 'Latency Reduction', description: 'Question delivery optimization' },
-    { value: '85%', label: 'Onboarding Time Cut', description: 'AI-powered personalization' },
-    { value: '35%', label: 'Retention Increase', description: 'Real-time dashboards' },
-    { value: '100%', label: 'Type Safety', description: 'TypeScript + Pydantic' },
+    { value: 40, label: 'Latency Reduction', description: 'Question delivery optimization' },
+    { value: 85, label: 'Onboarding Time Cut', description: 'AI-powered personalization' },
+    { value: 35, label: 'Retention Increase', description: 'Real-time dashboards' },
+    { value: 100, label: 'Type Safety', description: 'TypeScript + Pydantic' },
 ];
 
 const skills = [
@@ -75,7 +76,11 @@ export function About() {
                                 whileHover={{ y: -4 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <span className="stat-value">{stat.value}</span>
+                                <AnimatedStat
+                                    targetValue={stat.value}
+                                    suffix="%"
+                                    className="stat-value"
+                                />
                                 <span className="stat-label">{stat.label}</span>
                                 <span className="stat-description">{stat.description}</span>
                             </motion.div>
