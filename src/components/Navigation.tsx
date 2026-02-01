@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -21,6 +21,7 @@ export function Navigation() {
     });
 
     const [scrolled, setScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,11 +31,39 @@ export function Navigation() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close menu on resize to desktop
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setIsMenuOpen(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Prevent body scroll when menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMenuOpen]);
+
     const scrollToSection = (href: string) => {
         const element = document.querySelector(href);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
+        setIsMenuOpen(false);
+    };
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     return (
@@ -66,6 +95,7 @@ export function Navigation() {
                         JP
                     </motion.a>
 
+                    {/* Desktop Nav Links */}
                     <div className="nav-links">
                         {navItems.map((item, index) => (
                             <motion.a
@@ -103,13 +133,76 @@ export function Navigation() {
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <button className="mobile-menu-btn" aria-label="Toggle menu">
+                    <button
+                        className={`mobile-menu-btn ${isMenuOpen ? 'active' : ''}`}
+                        aria-label="Toggle menu"
+                        onClick={toggleMenu}
+                    >
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                 </div>
             </motion.nav>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            className="mobile-menu-backdrop"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMenuOpen(false)}
+                        />
+
+                        {/* Slide-out Menu */}
+                        <motion.div
+                            className="mobile-menu"
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: 'tween', duration: 0.3 }}
+                        >
+                            <div className="mobile-menu-content">
+                                {navItems.map((item, index) => (
+                                    <motion.a
+                                        key={item.name}
+                                        href={item.href}
+                                        className="mobile-menu-link"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            scrollToSection(item.href);
+                                        }}
+                                    >
+                                        {item.name}
+                                    </motion.a>
+                                ))}
+
+                                <motion.a
+                                    href="#contact"
+                                    className="mobile-menu-cta"
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.5 }}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection('#contact');
+                                    }}
+                                >
+                                    Let&apos;s Talk →
+                                </motion.a>
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </>
     );
 }
+

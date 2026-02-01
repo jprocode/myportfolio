@@ -266,16 +266,26 @@ const OrbitingSkill = memo(({ config, angle }: OrbitingSkillProps) => {
     const [isHovered, setIsHovered] = useState(false);
     const { orbitRadius, size, iconType, label } = config;
 
+    // Calculate position on orbit
     const x = Math.cos(angle) * orbitRadius;
     const y = Math.sin(angle) * orbitRadius;
 
+    // Use left/top positioning instead of calc() in transform
+    // Safari doesn't support calc() inside translate3d()
+    const halfSize = size / 2;
+
     return (
         <div
-            className="absolute top-1/2 left-1/2 transition-all duration-300 ease-out"
+            className="orbiting-skill-item"
             style={{
+                position: 'absolute',
                 width: `${size}px`,
                 height: `${size}px`,
-                transform: `translate(calc(${x}px - 50%), calc(${y}px - 50%))`,
+                // Position from center of container, offset by half the icon size
+                left: '50%',
+                top: '50%',
+                marginLeft: `${x - halfSize}px`,
+                marginTop: `${y - halfSize}px`,
                 zIndex: isHovered ? 20 : 10,
             }}
             onMouseEnter={() => setIsHovered(true)}
