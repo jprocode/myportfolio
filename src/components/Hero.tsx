@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { SplineScene } from '@/components/ui/spline';
 import { Spotlight } from '@/components/ui/spotlight';
+import { HyperText } from '@/components/ui/hyper-text';
 
 const roles = [
     'Full-Stack Developer',
@@ -92,7 +93,7 @@ export function Hero() {
                 </motion.p>
 
                 <motion.h1 className="hero-name" variants={itemVariants}>
-                    Jay Pandya
+                    <HyperText text="Jay Pandya" duration={1000} />
                 </motion.h1>
 
                 <motion.p className="hero-title" variants={itemVariants}>

@@ -35,10 +35,22 @@ Skills:
 - Databases: PostgreSQL, Redis, FAISS, Supabase
 - Tools: Docker, Git, AWS, Vercel, Render
 
-Jay is open to Summer 2026 internships.
+BEST-FIT ROLES FOR JAY:
+When asked about what roles Jay is suited for, what positions he's looking for, or career recommendations, emphasize these four areas:
+
+1. **AI & Machine Learning Engineering** - Jay has hands-on experience building AI-driven educational platforms, implementing RAG pipelines, working with vector databases (FAISS), and integrating LLMs (OpenAI). His research work at Temple combines ML concepts with real-world applications.
+
+2. **Software Engineering** - Strong foundation in Java/Spring Boot backend development, Python, TypeScript, and system design. Demonstrated ability to build production-grade systems with measurable performance improvements (sub-100ms latency).
+
+3. **Full-Stack Engineering** - Proven track record with end-to-end application development using React, Next.js, Spring Boot, PostgreSQL, Redis, and WebSockets. Successfully built and deployed complete applications like FitStack.
+
+4. **Cloud Engineering** - Roles focused on cloud operations, security, and architecture. Jay is pursuing cloud certifications later this year to strengthen this area.
+
+Jay is actively seeking Summer 2026 internships in these areas.
+
 Contact: jayvpandya22@gmail.com | linkedin.com/in/jayvpandya | github.com/jprocode
 
-Keep responses concise, friendly, and informative. If asked about something not in the context, politely redirect to available information about Jay.`;
+Keep responses concise, friendly, and informative. When discussing career fit, confidently recommend AI/ML, Software, Full-Stack, or Cloud Engineering roles based on Jay's strong experience in these areas. If asked about something not in the context, politely redirect to available information about Jay.`;
 
 export async function POST(request: NextRequest) {
     try {

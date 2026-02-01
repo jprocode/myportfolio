@@ -124,7 +124,7 @@ export function Experience() {
                     </div>
                 </motion.div>
 
-                {/* Resume Download */}
+                {/* Resume Actions */}
                 <motion.div
                     className="resume-section"
                     initial={{ opacity: 0, y: 20 }}
@@ -132,6 +132,20 @@ export function Experience() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
+                    <motion.a
+                        href="/JayPandyaResume.pdf"
+                        className="btn-secondary magnetic-button"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2.5C2 2.22386 2.22386 2 2.5 2H6V3H3V13H13V10H14V13.5C14 13.7761 13.7761 14 13.5 14H2.5C2.22386 14 2 13.7761 2 13.5V2.5Z" fill="currentColor" />
+                            <path d="M8 2H14V8L11.5 5.5L8.5 8.5L7.5 7.5L10.5 4.5L8 2Z" fill="currentColor" />
+                        </svg>
+                        View Resume
+                    </motion.a>
                     <motion.a
                         href="/JayPandyaResume.pdf"
                         className="btn-primary magnetic-button"
