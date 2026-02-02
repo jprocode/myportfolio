@@ -8,7 +8,7 @@ import { HyperText } from '@/components/ui/hyper-text';
 
 const roles = [
     'Full-Stack Developer',
-    'AI Enthusiast',
+    'AI/ML Developer',
     'Problem Solver',
 ];
 

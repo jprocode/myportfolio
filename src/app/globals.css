@@ -367,12 +367,12 @@ body {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1rem;
-  color: var(--foreground);
+  color: #0066FF;
 }
 
 .hero-title {
   font-size: clamp(1rem, 3vw, 1.5rem);
-  color: var(--foreground-secondary);
+  color: #ffffff;
   margin-bottom: 2rem;
   font-weight: 400;
 }
@@ -1456,7 +1456,7 @@ body {
 }
 
 /* ========================================
-   AI CHAT - SIRI ORB BUTTON
+   3D SIRI ORB CHAT BUTTON
    ======================================== */
 
 .chat-button {
@@ -1469,17 +1469,30 @@ body {
   border: none;
   border-radius: 50%;
   padding: 0;
-  cursor: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-lg);
   z-index: 1000;
-  transition: box-shadow 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .chat-button:hover {
-  box-shadow: 0 8px 32px rgba(0, 102, 255, 0.35);
+  transform: scale(1.1) translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.chat-button:active {
+  transform: scale(1.05);
+}
+
+/* Ensure visibility in both themes */
+[data-theme="light"] .chat-button {
+  filter: drop-shadow(0 4px 12px rgba(0, 102, 255, 0.4));
+}
+
+[data-theme="dark"] .chat-button {
+  filter: drop-shadow(0 4px 16px rgba(0, 102, 255, 0.5));
 }
 
 .chat-modal {
