@@ -110,7 +110,7 @@ export function AIChat() {
                     >
                         {/* Header */}
                         <div className="chat-header">
-                            <span className="chat-header-title">Chat with Jay&apos;s AI</span>
+                            <span className="chat-header-title">Chat With My AI</span>
                             <button className="chat-close" onClick={() => setIsOpen(false)}>
                                 <CloseIcon />
                             </button>
